@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenu = document.getElementById('mobileMenu');
   const scrollToTopBtn = document.getElementById('scrollToTop');
   const navLinks = document.querySelectorAll('.nav-list a, .mobile-menu a');
+  const logoImg = document.querySelector('.logo-img');
 
   // Detectar si estamos en una página interior
   const isInteriorPage = document.body.classList.contains('page-interior');
@@ -20,6 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===================================
   // HEADER SCROLL EFFECT
   // ===================================
+  function updateHeaderLogo(useLightLogo) {
+    if (!logoImg) return;
+
+    const lightLogo = logoImg.dataset.logoLight;
+    const darkLogo = logoImg.dataset.logoDark;
+
+    if (!lightLogo || !darkLogo) return;
+
+    logoImg.src = useLightLogo ? lightLogo : darkLogo;
+  }
+
   function handleScroll() {
     const scrollY = window.scrollY;
     
@@ -27,9 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!isInteriorPage) {
       if (scrollY > 50) {
         header.classList.add('scrolled');
+        updateHeaderLogo(false);
       } else {
         header.classList.remove('scrolled');
+        updateHeaderLogo(true);
       }
+    } else {
+      updateHeaderLogo(false);
     }
     
     // Mostrar/ocultar botón scroll to top
