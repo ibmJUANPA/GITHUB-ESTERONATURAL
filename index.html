@@ -15,8 +15,15 @@
   <header id="header">
     <nav>
       <ul class="nav-list">
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="experiencias.html">Experiencias</a></li>
+        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-dropdown-toggle" aria-expanded="false">Experiencias <span class="dropdown-arrow">&#9660;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="tour-libre.html">Tour Libre</a>
+            <a href="visitas-grupo.html">Visitas en Grupo</a>
+          </div>
+        </li>
+        <li><a href="galeria.html">Galería</a></li>
         <li class="nav-logo">
           <a href="index.html">
             <img src="./img/en-logo-2-w.png" alt="Estero Natural" class="logo-img" data-logo-light="./img/en-logo-2-w.png" data-logo-dark="./img/logo-navbar-negro.png">
@@ -24,6 +31,7 @@
           </a>
         </li>
         <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="como-llegar.html">Cómo Llegar</a></li>
         <li><a href="ayudas.html">Ayudas</a></li>
       </ul>
     </nav>
@@ -37,9 +45,17 @@
 
     <div class="mobile-menu" id="mobileMenu">
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="experiencias.html">Experiencias</a></li>
+        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li class="mobile-dropdown">
+          <a href="#" class="mobile-dropdown-toggle" aria-expanded="false">Experiencias <span class="dropdown-arrow">&#9660;</span></a>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="tour-libre.html">Tour Libre</a></li>
+            <li><a href="visitas-grupo.html">Visitas en Grupo</a></li>
+          </ul>
+        </li>
+        <li><a href="galeria.html">Galería</a></li>
         <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="como-llegar.html">Cómo Llegar</a></li>
         <li><a href="ayudas.html">Ayudas</a></li>
       </ul>
     </div>
@@ -56,31 +72,40 @@
   </section>
 
   <!-- Sobre Nosotros -->
-  <section id="nosotros" class="about-section">
+  <section id="sobre-nosotros" class="about-section" style="background-color: var(--color-light-gray);">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-image">
-          <!-- PLACEHOLDER: Imagen decorativa circular -->
-          <img src="./img/a3.png" alt="Decorativa" class="circle-image">
+      <div class="page-header">
+        <div class="header-line"></div>
+        <h2>Sobre Nosotros</h2>
+      </div>
+      <div style="display: flex; gap: 50px; align-items: flex-start;">
+        <!-- Columna izquierda: foto -->
+        <div style="flex: 0 0 350px;">
+          <div style="width: 100%; height: 350px; display: flex; align-items: center; justify-content: center;">
+            <img src="./img/esteronatural-logo.png" alt="Garzas volando">
+          </div>
         </div>
-        <div class="about-content">
-          <p>
-            <strong>¿Te imaginas un lugar donde la naturaleza y la vida en el agua se unen de una forma súper especial? ¡Pues ese es Estero Natural!</strong> 
-            Somos un grupo de personas a las que les encanta mostrarte los secretos de los esteros, esos sitios donde el río se encuentra con el mar.
-          </p>
-          <p>
-            <strong>¿Sabías que en estos lugares se pueden criar peces y otras especies de una manera que cuida el medio ambiente?</strong> 
-            ¡Pues sí! En nuestras visitas guiadas te enseñamos cómo funciona la acuicultura, que es como tener granjas… ¡pero en el agua! Y lo mejor de todo es que hacemos todo esto de forma sostenible, pensando en el futuro de nuestro planeta. ¡Verás un montón de animales y plantas increíbles!
-          </p>
-          <p>
-            <strong>En Estero Natural queremos que la acuicultura vuelva a ser como antes, cuando iba de la mano con la naturaleza.</strong> 
-            Por eso, nos esforzamos en cultivar diferentes tipos de animales y plantas de los esteros siguiendo las costumbres de siempre y respetando el entorno que nos rodea. ¡Es una manera genial de disfrutar de productos frescos y naturales a la vez que cuidamos de nuestro hogar! ¿Te animas a descubrirlo con nosotros?
-          </p>
-          <a href="experiencias.html" class="btn btn-primary">Reserva tu visita</a>
+        <!-- Columna derecha: párrafos intro -->
+        <div style="flex: 1;">
+          <p style="color: var(--color-muted); font-size: 15px; line-height: 1.8; margin-bottom: 20px;">En pleno corazón del Parque Natural Bahía de Cádiz, existe un lugar donde el mar, la marisma y el tiempo trabajan juntos. Ese lugar es <strong>Estero Natural</strong>.</p>
+          <p style="color: var(--color-muted); font-size: 15px; line-height: 1.8; margin-bottom: 20px;">Somos un referente en turismo acuícola sostenible y la <strong>única empresa certificada en acuiturismo (001 – CA – A)</strong>. Unimos tradición, innovación y respeto por el entorno para ofrecer experiencias auténticas que conectan con la naturaleza, la cultura y la gastronomía local.</p>
+          <p style="color: var(--color-muted); font-size: 15px; line-height: 1.8;">Nuestro proyecto nace del amor por los esteros y sus productos, apostando por un modelo responsable que genera valor ambiental, social y económico.</p>
         </div>
+      </div>
+      <!-- Lo que ofrecemos: ocupa todo el ancho, alineado con el inicio de la foto -->
+      <div style="margin-top: 35px;">
+        <p style="color: var(--color-muted); font-size: 15px; line-height: 1.8; margin-bottom: 8px;"><strong>Lo que ofrecemos:</strong></p>
+        <ul style="color: var(--color-muted); font-size: 15px; line-height: 1.9; margin-bottom: 30px; padding-left: 20px; list-style: disc;">
+          <li><strong>Turismo acuícola y de naturaleza</strong> — acuicultura tradicional, observación de aves, cultivo de ostra y degustaciones.</li>
+          <li><strong>Gastronomía de estero</strong> — productos de nuestra finca donde tradición y calidad ponen en valor los sabores auténticos del estero.</li>
+          <li><strong>Educación ambiental</strong> — talleres y actividades para centros educativos, familias y colectivos.</li>
+        </ul>
+        
       </div>
     </div>
   </section>
+
+
 
   <!-- Call to Action -->
   <section class="cta-section">
@@ -92,36 +117,7 @@
     </div>
   </section>
 
-  <!-- Galería -->
-  <section id="galeria" class="gallery-section">
-    <div class="container">
-      <div class="gallery-header">
-        <!-- PLACEHOLDER: Imagen decorativa -->
-        <img src="./img/a10.png" alt="Detalle decorativo" class="small-circle decorative-image">
-        <h2>Descubre un lugar único</h2>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <a href="#">
-            <!-- PLACEHOLDER: Galería imagen 1 -->
-            <img src="./img/imagen-galeria-1.jpeg" alt="Imagen de los esteros" class="gallery-placeholder gallery-image">
-          </a>
-        </div>
-        <div class="gallery-item">
-          <a href="#">
-            <!-- PLACEHOLDER: Galería imagen 2 -->
-            <img src="./img/imagen-galeria-2.jpeg" alt="Imagen de fauna en los esteros" class="gallery-placeholder gallery-image">
-          </a>
-        </div>
-        <div class="gallery-item">
-          <a href="#">
-            <!-- PLACEHOLDER: Galería imagen 3 -->
-            <img src="./img/imagen-galeria-3.jpeg" alt="Imagen de paisaje de los esteros" class="gallery-placeholder gallery-image">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Eventos -->
   <section id="eventos" class="events-section">
@@ -129,7 +125,7 @@
       <h2>Eventos</h2>
       <div class="events-content">
         <div class="event-image">
-          <a href="#">
+          <a href="https://entradium.com/events/estero-natural-sabados-de-esteros" target="_blank" rel="noopener noreferrer">
             <!-- PLACEHOLDER: Imagen del evento -->
             <img src="./img/imagen-eventos.jpeg" alt="Evento Sábados de Esteros" class="event-placeholder event-image-file">
           </a>

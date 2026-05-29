@@ -247,6 +247,117 @@ ul {
 }
 
 /* ===================================
+   DROPDOWN DE NAVEGACIÓN
+   =================================== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 8px;
+  transition: transform 0.25s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-white);
+  border-top: 2px solid var(--color-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  min-width: 170px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateX(-50%) translateY(-6px);
+  z-index: 200;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 11px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-foreground) !important;
+  border-bottom: 1px solid #f0f0f0;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-menu a:hover {
+  background-color: var(--color-light-gray);
+  color: var(--color-primary) !important;
+  padding-left: 24px;
+}
+
+/* Dropdown móvil */
+.mobile-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobile-dropdown-menu {
+  display: none;
+  padding-left: 16px;
+  margin-top: 10px;
+  border-left: 2px solid var(--color-primary);
+}
+
+.mobile-dropdown.open .mobile-dropdown-menu {
+  display: block;
+}
+
+.mobile-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu li {
+  padding: 6px 0;
+}
+
+.mobile-dropdown-menu a {
+  font-size: 13px !important;
+  letter-spacing: 0.8px !important;
+  color: var(--color-muted) !important;
+}
+
+.mobile-dropdown-menu a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* ===================================
    HERO SECTION (INICIO)
    =================================== */
 .hero {
@@ -897,6 +1008,355 @@ ul {
     width: 100px;
     height: 50px;
   }
+}
+
+/* ===================================
+   VISITAS GUIADAS - ESTILOS ESPECÍFICOS
+   =================================== */
+.visitas-page {
+  padding-top: 140px;
+  padding-bottom: 100px;
+}
+
+.visitas-page .page-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.visitas-page .page-header h1 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--color-foreground);
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.visitas-page .page-header .header-line {
+  margin: 0 auto 25px;
+}
+
+.intro-text {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+/* Secciones */
+.visita-section {
+  margin-bottom: 90px;
+}
+
+.section-header {
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.section-header h2 {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  color: var(--color-foreground);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.section-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+/* Visita Card */
+.visita-card {
+  background-color: var(--color-white);
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.visita-desc {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+  max-width: 680px;
+}
+
+/* Layout dos columnas dentro de cards */
+.visita-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 35px;
+}
+
+/* Incluye Lista */
+.incluye-lista {
+  margin-bottom: 0;
+}
+
+.incluye-lista h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-foreground);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.incluye-lista ul {
+  list-style: none;
+  padding: 0;
+}
+
+.incluye-lista li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.incluye-lista li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+/* Datos de visita (precio, horario…) */
+.visita-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dato-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dato-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.dato-valor {
+  font-size: 15px;
+  color: var(--color-foreground);
+}
+
+/* Packs Grid */
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.pack-card {
+  background-color: var(--color-white);
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.pack-card:hover {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.09);
+  transform: translateY(-3px);
+}
+
+.pack-card.featured {
+  border: 2px solid var(--color-primary);
+}
+
+.pack-header {
+  padding: 28px 30px 24px;
+  background-color: var(--color-light-gray);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.pack-badge {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 12px;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+
+.pack-header h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-foreground);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.pack-content {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pack-content .incluye-lista {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.pack-info {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.precio-principal {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.precio-principal span {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.precio-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.precio-extras span {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.pack-detalles {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+/* Botón Reservar */
+.btn-reserve {
+  display: block;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Experiencias de temporada */
+.temporada-card {
+  background-color: var(--color-white);
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.temporada-card:last-of-type {
+  margin-bottom: 0;
+}
+
+.temporada-badge {
+  display: inline-block;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.temporada-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  color: var(--color-foreground);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.temporada-intro {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 640px;
+}
+
+/* CTA Final */
+.cta-final {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cta-content-box {
+  background-color: var(--color-light-gray);
+  border: 1px solid #e5e5e5;
+  padding: 60px 50px;
+  border-radius: 8px;
+}
+
+.cta-content-box .quote {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-muted);
+  margin-bottom: 35px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.cta-content-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-foreground);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.cta-content-box p {
+  font-size: 15px;
+  color: var(--color-muted);
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.btn-large {
+  padding: 14px 40px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 480px) {

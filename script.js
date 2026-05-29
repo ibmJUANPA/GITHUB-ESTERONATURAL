@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateHeaderLogo(true);
       }
     } else {
+      header.classList.add('header-interior');
       updateHeaderLogo(false);
     }
     
@@ -69,11 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
       this.classList.toggle('active');
     });
 
-    // Cerrar menú al hacer clic en un enlace
+    // Cerrar menú al hacer clic en un enlace (excepto el toggle del dropdown)
     mobileMenu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
+        if (!this.classList.contains('mobile-dropdown-toggle')) {
+          mobileMenu.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        }
       });
     });
 
@@ -83,6 +86,50 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.classList.remove('active');
         mobileMenuBtn.classList.remove('active');
       }
+    });
+  }
+
+  // ===================================
+  // DROPDOWN EXPERIENCIAS (DESKTOP)
+  // ===================================
+  const navDropdown = document.querySelector('.nav-dropdown');
+  const navDropdownToggle = document.querySelector('.nav-dropdown-toggle');
+
+  if (navDropdown && navDropdownToggle) {
+    navDropdownToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      navDropdown.classList.toggle('open');
+      this.setAttribute('aria-expanded', navDropdown.classList.contains('open'));
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', function(e) {
+      if (!navDropdown.contains(e.target)) {
+        navDropdown.classList.remove('open');
+        navDropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Cerrar al pulsar Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        navDropdown.classList.remove('open');
+        navDropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // ===================================
+  // DROPDOWN EXPERIENCIAS (MÓVIL)
+  // ===================================
+  const mobileDropdown = document.querySelector('.mobile-dropdown');
+  const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+
+  if (mobileDropdown && mobileDropdownToggle) {
+    mobileDropdownToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      mobileDropdown.classList.toggle('open');
+      this.setAttribute('aria-expanded', mobileDropdown.classList.contains('open'));
     });
   }
 
